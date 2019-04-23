@@ -177,6 +177,9 @@
 #endif
 
 #if ST_CLOCK_SRC % OSAL_ST_FREQUENCY != 0
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+#pragma message "ST_CLOCK_SRC: " STR(ST_CLOCK_SRC)
 #error "the selected ST frequency is not obtainable because integer rounding"
 #endif
 

@@ -5,7 +5,7 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)  # use O2 for production
-  USE_OPT = -O2 -ggdb -fomit-frame-pointer -falign-functions=16 -nostdlib -DSHELL_CONFIG_FILE -fstack-protector
+  USE_OPT = -O0 -ggdb -fomit-frame-pointer -falign-functions=16 -nostdlib -DSHELL_CONFIG_FILE -fstack-protector
 endif
 
 # C specific options here (added to USE_OPT).
@@ -217,7 +217,7 @@ CPPWARN = -Wall -Wextra -Wundef
 UDEFS = -DTARGET_MK22F -D__FPU_PRESENT=1 -DDISABLE_WATCHDOG #-DTESTER_DEVICE ## comment out -DDISABLE_WATCHDOG for production # 
 
 # Define ASM defines here
-UADEFS =
+UADEFS = 
 
 # List all user directories here
 UINCDIR =

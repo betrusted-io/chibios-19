@@ -42,6 +42,14 @@ static THD_FUNCTION(Thread1, arg) {
   }
 }
 
+static const SerialConfig local_config =
+{
+  115200,
+  0,
+  USART_CR2_STOP1_BITS,
+  0
+};
+
 /*
  * Application entry point.
  */
@@ -60,7 +68,7 @@ int main(void) {
   /*
    * Activates the serial driver 1 using the driver default configuration.
    */
-  sdStart(&SD1, NULL);
+  sdStart(&SD1, &local_config);
 
   shellInit();
 

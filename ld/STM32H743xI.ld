@@ -127,16 +127,6 @@ SECTIONS
         __eth_end__ = .;
     } > ETH_RAM
 
-  .note.gnu.build-id :
-  {
-    . = ALIGN(4);
-    PROVIDE( _note = .);
-    *(.note.gnu.build-id)
-    . = ALIGN(4);
-    *(.note.gnu.build-id.*);
-    . = ALIGN(4);
-    PROVIDE( _enote = .);
-  }  > flash0
 }
 
 /* Code rules inclusion.*/
@@ -148,3 +138,15 @@ INCLUDE rules_data.ld
 /* Memory rules inclusion.*/
 INCLUDE rules_memory.ld
 
+SECTIONS {
+  .note.gnu.build-id :
+  {
+    . = ALIGN(4);
+    PROVIDE( _note = .);
+    *(.note.gnu.build-id)
+    . = ALIGN(4);
+    *(.note.gnu.build-id.*);
+    . = ALIGN(4);
+    PROVIDE( _enote = .);
+  }  > flash0
+}

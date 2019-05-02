@@ -43,8 +43,16 @@ char *completion_buffer[SHELL_MAX_COMPLETIONS];
  * Shell commands
  */
 void cmd_test(BaseSequentialStream *chp, int argc, char *argv[]);
+void cmd_init(BaseSequentialStream *chp, int argc, char *argv[]);
+void cmd_check(BaseSequentialStream *chp, int argc, char *argv[]);
+void cmd_upset(BaseSequentialStream *chp, int argc, char *argv[]);
+void cmd_scan(BaseSequentialStream *chp, int argc, char *argv[]);
 
 static const ShellCommand commands[] = {
+  {"scan", cmd_scan},
+  {"check", cmd_check},
+  {"upset", cmd_upset},
+  {"init", cmd_init},
   {"test", cmd_test},
   {NULL, NULL}
 };
